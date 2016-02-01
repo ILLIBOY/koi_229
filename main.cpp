@@ -12,17 +12,25 @@ int safe(int i, int j);
 int main()
 {
     input();
-    solve();
+    //solve();
+    for (int i=0; i<y; i++) {
+        for (int j=1; j<=x; j++) {
+            printf("%d %d %c\n",i,j, arr[i][j]);
+        }
+    }
     printf("%d", sum);
 }
 
 void input()
 {
     scanf("%d %d", &x, &y);
-    x*=2;
-    for (int i=0; i<x; i++) {
-        for (int j=0; j<y; j++) {
+    for (int i=0; i<y; i++) {
+        for (int j=0; j<=x; j++)
+        {
             scanf("%c", &arr[i][j]);
+            if (arr[i][j]==32) {
+                scanf("%c", &arr[i][j]);
+            }
         }
     }
 }
@@ -30,9 +38,8 @@ void input()
 void solve()
 {
     for (int i=0; i<x; i++) {
-        for (int j=0; j<y; j++) {
+        for (int j=1; j<y; j++) {
             if (arr[i][j]=='L') {
-                printf("%d %d %c\n", i,j, arr[i][j]);
                 bfs(i, j);
                 sum++;
             }
@@ -51,12 +58,7 @@ void bfs(int i, int j)
     else if (arr[i][j+1]=='L'&&safe(i, j+1)) bfs(i, j+1);
     else if (arr[i+1][j]=='L'&&safe(i+1, j)) bfs(i+1, j);
     else if (arr[i-1][j]=='L'&&safe(i-1, j)) bfs(i-1, j);
-    for (int i=0; i<x; i++) {
-        for (int j=0; j<y; j++) {
-            printf("%c", arr[i][j]);
-        }
-    }
-    printf("\n");
+    
 }
 
 int safe(int i, int j)
