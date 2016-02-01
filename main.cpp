@@ -50,14 +50,6 @@ void solve()
 void bfs(int i, int j)
 {
     arr[i][j]='.';
-    if (arr[i+1][j-1]=='L'&&safe(i+1, j-1)) bfs(i+1, j-1);
-    else if (arr[i+1][j+1]=='L'&&safe(i+1, j+1)) bfs(i+1, j+1);
-    else if (arr[i-1][j+1]=='L'&&safe(i-1, j+1)) bfs(i-1, j+1);
-    else if (arr[i-1][j-1]=='L'&&safe(i-1, j-1)) bfs(i-1, j-1);
-    else if (arr[i][j-1]=='L'&&safe(i, j-1)) bfs(i, j-1);
-    else if (arr[i][j+1]=='L'&&safe(i, j+1)) bfs(i, j+1);
-    else if (arr[i+1][j]=='L'&&safe(i+1, j)) bfs(i+1, j);
-    else if (arr[i-1][j]=='L'&&safe(i-1, j)) bfs(i-1, j);
     
 }
 
